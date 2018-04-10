@@ -1,37 +1,119 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Lugares</title>
-	<meta charset="utf-8">
-	<script type="text/javascript" src="funciones.js"></script>
-	<link rel="stylesheet" type="text/css" href="estiloDashboard.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-</head>
-<body>
-	<div class="header">
-		<div class="titulo2">
-			<h2>Resumen</h2>
+	<head>
+		<title>Lugares</title>
+		<meta charset="utf-8">
+		<script type="text/javascript" src="js/funciones.js"></script>
+		<link rel="stylesheet" type="text/css" href="estilos/estiloDashboard.css">
+			<link rel="stylesheet" type="text/css" href="estilos/FontAwesome/fontawesome-all.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+		<meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval'; script-src * 'unsafe-inline' 'unsafe-eval' ; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * 'unsafe-inline';">
+	</head>
+	<body onload="llenarOrden();">
+		<div class="header">
+            <div class="back" style="z-index: 99999999">
+                <a href="lugares.html"><i class="fas fa-chevron-circle-left fa-2x" ></i></a>
+            </div>
+            <div class="titulo4" style="z-index: 0">
+                <h2>Perfil</h2>
+            </div>
+        </div>
+		<div class="contenedor">
+			<script>
+			// This example creates a 2-pixel-wide red polyline showing the path of
+			// the first trans-Pacific flight between Oakland, CA, and Brisbane,
+			// Australia which was made by Charles Kingsford Smith.
+			function initMap() {
+			var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 14,
+			center: {lat: 20.5218493, lng: -100.8159036},
+			mapTypeId: 'terrain'
+			});
+			definePopupClass();
+			popup = new Popup(
+			new google.maps.LatLng(20.519532, -100.810953),
+			document.getElementById('content'));
+			popup.setMap(map);
+			/** Defines the Popup class. */
+			function definePopupClass() {
+			/**
+			* A customized popup on the map.
+			* @param {!google.maps.LatLng} position
+			* @param {!Element} content
+			* @constructor
+			* @extends {google.maps.OverlayView}
+			*/
+			Popup = function(position, content) {
+			this.position = position;
+			content.classList.add('popup-bubble-content');
+			var pixelOffset = document.createElement('div');
+			pixelOffset.classList.add('popup-bubble-anchor');
+			pixelOffset.appendChild(content);
+			this.anchor = document.createElement('div');
+			this.anchor.classList.add('popup-tip-anchor');
+			this.anchor.appendChild(pixelOffset);
+			// Optionally stop clicks, etc., from bubbling up to the map.
+			this.stopEventPropagation();
+			};
+			// NOTE: google.maps.OverlayView is only defined once the Maps API has
+			// loaded. That is why Popup is defined inside initMap().
+			Popup.prototype = Object.create(google.maps.OverlayView.prototype);
+			/** Called when the popup is added to the map. */
+			Popup.prototype.onAdd = function() {
+			this.getPanes().floatPane.appendChild(this.anchor);
+			};
+			/** Called when the popup is removed from the map. */
+			Popup.prototype.onRemove = function() {
+			if (this.anchor.parentElement) {
+			this.anchor.parentElement.removeChild(this.anchor);
+			}
+			};
+			/** Called when the popup needs to draw itself. */
+			Popup.prototype.draw = function() {
+			var divPosition = this.getProjection().fromLatLngToDivPixel(this.position);
+			// Hide the popup when it is far out of view.
+			var display =
+			Math.abs(divPosition.x) < 4000 && Math.abs(divPosition.y) < 4000 ?
+			'block' :
+			'none';
+			if (display === 'block') {
+			this.anchor.style.left = divPosition.x + 'px';
+			this.anchor.style.top = divPosition.y + 'px';
+			}
+			if (this.anchor.style.display !== display) {
+			this.anchor.style.display = display;
+			}
+			};
+			/** Stops clicks/drags from bubbling up to the map. */
+			Popup.prototype.stopEventPropagation = function() {
+			var anchor = this.anchor;
+			anchor.style.cursor = 'auto';
+			['click', 'dblclick', 'contextmenu', 'wheel', 'mousedown', 'touchstart',
+			'pointerdown']
+			.forEach(function(event) {
+			anchor.addEventListener(event, function(e) {
+			e.stopPropagation();
+			});
+			});
+			};
+			}
+			}
+			</script>
+			<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuyMbdtLt_T5XYedMu_HWwTdjGTg6a0lk&callback=initMap">
+			</script>
+			<div id="map"></div>
+			<div id="content" >
+      			Aquí
+    		</div>
+			<section class="estadisticas2">
+			</section>
+			<button class="pago1" onclick="window.location.assign('confirmacion.html');">Pago con Efectivo</button>
+			<button class="pago2" onclick="window.location.assign('pago.html');">Pago con Tarjeta</button>
+			
+			
+			
 		</div>
-	</div>
-	<div class="contenedor">
-		
-			<div class="estadisticas2">
-				<span>Resumen de pedido:<br>
-				5 impresiones.<br>
-				Costo por impresión: $5.00<br>
-				Total: $25.00</span>
-			</div>
-
-			
-			<div class="modulos" id="arriba" onclick="window.location.assign('confirmacion.html');">
-				<span>Pago con Efectivo</span>
-			</div>
-			<div class="modulos" id="arriba" onclick="window.location.assign('pago.html');">
-				<span>Pago con Trajeta</span>
-			</div>
-			
-		
-	</div>
-
-</body>
+	</body>
 </html>

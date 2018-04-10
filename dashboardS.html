@@ -3,7 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<title>Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="estilos/estiloDashboard.css">
+	<script type="text/javascript" src="js/funciones.js"></script>
+	<link rel="stylesheet" type="text/css" href="estilos/estiloDashboardS.css">
 	<link rel="stylesheet" type="text/css" href="estilos/FontAwesome/fontawesome-all.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
@@ -15,24 +16,30 @@
 			<img src="img/logo.png">
 		</div>
 		<div class="titulo">
-			<h1>Copyclex</h1>
+			<h2>Copyclex</h2>
+		</div>
+
+		<div class="cerrar">
+			<h onclick="window.location.assign('index.html')";>Cerrar Sesión</h>
 		</div>
 	</div>
 	<div class="contenedor">
-		
-			<div class="estadisticas">
-				<span>¡Bienvenido al sistema de impresiones<br>COPYCLEX!</span>
+		<div class="panel">
+			<div class="menu">
+				<div class="item">
+					<a href=""><h3>Ordenes</h3></a>
+				</div>
+				<div class="item">
+					<a href="historial.html"><h3>Historial</h3></a>
+				</div>
+				
 			</div>
-
+		</div>
+		<section class="contenido">
 			
-			<div class="modulos" id="arriba" onclick="window.location.assign('lugares.html');">
-				<span >Impresiones a color</span>
-			</div>
-			<div class="modulos" id="arriba" onclick="window.location.assign('lugares.html');">
-				<span >Impresiones Blanco y Negro.</span>
-			</div>
-			
-		
+		</section>
 	</div>
+
+	<script type="text/javascript">window.addEventListener('load', cargarOrdenes, true);</script>
 </body>
 </html>
