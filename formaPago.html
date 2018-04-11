@@ -33,8 +33,20 @@
 			});
 			definePopupClass();
 			popup = new Popup(
-			new google.maps.LatLng(20.519532, -100.810953),
-			document.getElementById('content'));
+			new google.maps.LatLng(20.525853, -100.817734),
+			document.getElementById('content1'));
+			popup.setMap(map);
+			popup = new Popup(
+			new google.maps.LatLng(20.528899, -100.808435),
+			document.getElementById('content2'));
+			popup.setMap(map);
+			popup = new Popup(
+			new google.maps.LatLng(20.519992, -100.816275),
+			document.getElementById('content3'));
+			popup.setMap(map);
+			popup = new Popup(
+			new google.maps.LatLng(20.517740, -100.834006),
+			document.getElementById('content4'));
 			popup.setMap(map);
 			/** Defines the Popup class. */
 			function definePopupClass() {
@@ -105,8 +117,17 @@
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuyMbdtLt_T5XYedMu_HWwTdjGTg6a0lk&callback=initMap">
 			</script>
 			<div id="map"></div>
-			<div id="content" >
-      			Aquí
+			<div id="content1" >
+      			Jorge Mendoza Ortiz
+    		</div>
+    		<div id="content2" >
+      			Ana González Patiño
+    		</div>
+    		<div id="content3" >
+      			Raúl Godoy Zamora
+    		</div>
+    		<div id="content4" >
+      			Renata Patiño Flores
     		</div>
 			<section class="estadisticas2">
 			</section>
