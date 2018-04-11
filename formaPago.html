@@ -27,25 +27,25 @@
 			// Australia which was made by Charles Kingsford Smith.
 			function initMap() {
 			var map = new google.maps.Map(document.getElementById('map'), {
-			zoom: 14,
-			center: {lat: 20.5218493, lng: -100.8159036},
+			zoom: 14.75,
+			center: {lat: 20.4839395, lng: -100.9630648},
 			mapTypeId: 'terrain'
 			});
 			definePopupClass();
 			popup = new Popup(
-			new google.maps.LatLng(20.525853, -100.817734),
+			new google.maps.LatLng(20.483745, -100.961615),
 			document.getElementById('content1'));
 			popup.setMap(map);
 			popup = new Popup(
-			new google.maps.LatLng(20.528899, -100.808435),
+			new google.maps.LatLng(20.478863, -100.965257),
 			document.getElementById('content2'));
 			popup.setMap(map);
 			popup = new Popup(
-			new google.maps.LatLng(20.519992, -100.816275),
+			new google.maps.LatLng(20.486730, -100.965248),
 			document.getElementById('content3'));
 			popup.setMap(map);
 			popup = new Popup(
-			new google.maps.LatLng(20.517740, -100.834006),
+			new google.maps.LatLng(20.481861, -100.958964),
 			document.getElementById('content4'));
 			popup.setMap(map);
 			/** Defines the Popup class. */
@@ -117,16 +117,16 @@
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuyMbdtLt_T5XYedMu_HWwTdjGTg6a0lk&callback=initMap">
 			</script>
 			<div id="map"></div>
-			<div id="content1" >
+			<div id="content1" onclick="location.href = 'geo:20.483745, -100.961615'">
       			Jorge Mendoza Ortiz
     		</div>
-    		<div id="content2" >
+    		<div id="content2" onclick="location.href = 'geo:20.478863, -100.965257'">
       			Ana González Patiño
     		</div>
-    		<div id="content3" >
+    		<div id="content3" onclick="location.href = 'geo:20.486730, -100.965248'">
       			Raúl Godoy Zamora
     		</div>
-    		<div id="content4" >
+    		<div id="content4" onclick="location.href = 'geo:20.481861, -100.958964'">
       			Renata Patiño Flores
     		</div>
 			<section class="estadisticas2">
