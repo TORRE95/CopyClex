@@ -5,7 +5,7 @@ function inicioSesion() {
 	var aux = 0;
 	if(mail != "" && pass != ""){
 		inicioAjax = new XMLHttpRequest();
-		inicioAjax.open('GET', 'https://torreextra.000webhostapp.com/selectUsuarios.php?mail='+mail+'&pass='+pass);
+		inicioAjax.open('GET', 'https://copyclex1.000webhostapp.com/selectUsuarios.php?mail='+mail+'&pass='+pass);
 		inicioAjax.send();
 		
 		inicioAjax.onreadystatechange = function(){
@@ -49,7 +49,7 @@ function registrar() {
 	if (nombre != "" && mail != "" && pass1 != "" && pass2 != "") {
 		if (pass1 == pass2) {
 			registroAjax = new XMLHttpRequest();
-			registroAjax.open('GET', "https://torreextra.000webhostapp.com/registrarUsuarios.php?nombre="+nombre+"&mail="+mail+"&pass1="+pass1);
+			registroAjax.open('GET', "https://copyclex1.000webhostapp.com/registrarUsuarios.php?nombre="+nombre+"&mail="+mail+"&pass1="+pass1);
 			registroAjax.send();
 			registroAjax.onreadystatechange = function(){
 				if (registroAjax.readyState == 4 && registroAjax.status == 200) {
@@ -78,7 +78,7 @@ function registrarServidor() {
 	if (nombre != "" && mail != "" && pass1 != "" && pass2 != "" && ubicacion != "") {
 		if (pass1 == pass2) {
 			registroAjax = new XMLHttpRequest();
-			registroAjax.open('GET', "https://torreextra.000webhostapp.com/registrarServer.php?nombre="+nombre+"&mail="+mail+"&pass1="+pass1+"&ubicacion="+ubicacion+"");
+			registroAjax.open('GET', "https://copyclex1.000webhostapp.com/registrarServer.php?nombre="+nombre+"&mail="+mail+"&pass1="+pass1+"&ubicacion="+ubicacion+"");
 			registroAjax.send();
 			registroAjax.onreadystatechange = function(){
 				if (registroAjax.readyState == 4 && registroAjax.status == 200) {
@@ -101,7 +101,7 @@ function registrarServidor() {
 function cargarHistorial() {
 	var id = localStorage.getItem('idUsuario');
 	historialAjax = new XMLHttpRequest();
-	historialAjax.open('GET', "https://torreextra.000webhostapp.com/selectHistorial.php?id="+id);
+	historialAjax.open('GET', "https://copyclex1.000webhostapp.com/selectHistorial.php?id="+id);
 	historialAjax.send();
 	historialAjax.onreadystatechange = function(){
 		if (historialAjax.readyState == 4 && historialAjax.status == 200) {
@@ -141,7 +141,7 @@ function orden() {
 	var costoTotal = sessionStorage.getItem("costoTotal");
 	var idUsuario = localStorage.getItem("idUsuario");
 	var nombreServer = localStorage.getItem("Nombre");
-	var url = "https://torreextra.000webhostapp.com/insertarOrden.php?idUsuario="+idUsuario+"&nombreServer="+nombreServer+"&montoTotal="+costoTotal+"&numImpresiones="+
+	var url = "https://copyclex1.000webhostapp.com/insertarOrden.php?idUsuario="+idUsuario+"&nombreServer="+nombreServer+"&montoTotal="+costoTotal+"&numImpresiones="+
 				numImpresiones;
 	ordenAjax = new XMLHttpRequest();
 	ordenAjax.open('GET', url);
@@ -160,7 +160,7 @@ function orden() {
 
 function cargarLugares() {
 	lugaresAjax = new XMLHttpRequest();
-	lugaresAjax.open('POST', "https://torreextra.000webhostapp.com/selectLugares.php");
+	lugaresAjax.open('POST', "https://copyclex1.000webhostapp.com/selectLugares.php");
 	lugaresAjax.send();
 	lugaresAjax.onreadystatechange = function(){
 		if (lugaresAjax.readyState == 4 && lugaresAjax.status == 200) {
@@ -194,7 +194,7 @@ function cargarOrdenes(){
 	var idServidor = localStorage.getItem('idUsuario');
 
 	ordenesAjax = new XMLHttpRequest();
-	ordenesAjax.open('GET', "https://torreextra.000webhostapp.com/selectOrdenes.php?id="+idServidor);
+	ordenesAjax.open('GET', "https://copyclex1.000webhostapp.com/selectOrdenes.php?id="+idServidor);
 	ordenesAjax.send();
 	ordenesAjax.onreadystatechange = function(){
 		if (ordenesAjax.readyState == 4 && ordenesAjax.status == 200) {
@@ -223,7 +223,7 @@ function completar(num) {
 	
 
 	completarAjax = new XMLHttpRequest();
-	completarAjax.open('GET', "https://torreextra.000webhostapp.com/completarOrden.php?id="+num);
+	completarAjax.open('GET', "https://copyclex1.000webhostapp.com/completarOrden.php?id="+num);
 	completarAjax.send();
 
 			completarAjax.onreadystatechange = function(){
