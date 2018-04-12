@@ -128,7 +128,10 @@ function llenarOrden() {
 		"<span>Resumen de pedido:<br>"+
 		"<span>"+random100+"</span> <span>impresiones</span><br>"+
 		"<span>Costo por impresión: $</span><span>0.50</span><br>"+
-		"<span>Total: $</span><span>"+costoTotal+"</span>";
+		"<span>Total: $</span><span>"+costoTotal+"</span><br><br>"+
+		"<span>Horarios seguros de recolección</span><br>"+
+		"<span>12:00 am - 1:30 am</span><br>"+
+		"<span> 5:30 am - 7:00 am</span>";
 	document.querySelector('section').innerHTML = llenado;
 
 	sessionStorage.setItem("numImpresiones", random100);
